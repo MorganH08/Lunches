@@ -3,12 +3,12 @@ $servername="localhost";
 $username="root";
 $password="root";
 $conn = new PDO("mysql:host=$servername",$username,$password);
-$conn = setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $sql = "CREATE DATABASE IF NOT EXISTS Lunches";
-$conn->exec($sql);
+$conn->exec($sql); */
 $sql = "USE Lunches";
 $conn->exec($sql);
-echo("DB created successfuly<br>");
+echo("DB created successfuly<br>"); */
 //create users table
 $stmt = $conn->prepare("DROP TABLE IF EXISTS tblusers;
 CREATE TABLE tblusers
@@ -18,10 +18,10 @@ Surname VARCHAR(20) NOT NULL,
 Forename VARCHAR(20) NOT NULL,
 Password VARCHAR(200) NOT NULL,
 Year INT(2) NOT NULL,
-Balance DECIMAL (15,2,) NOT NULL
+Balance DECIMAL (15,2) NOT NULL
 Role TINYINT(1)
 );
 ");
-$stmt->execute();
+$stmt->execute(); */
 echo("tbluser created<br>");
 ?>

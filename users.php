@@ -4,7 +4,7 @@
         <title>PHP Info</title>
     </head>
     <body>
-        <form>
+        <form action="addpupil.php".method="POST">
             Surname:<input type="text" name="surname"><br>
             Forename:<input type="text" name="forename"><br>
             Password:<input type="password" name="password"><br>
