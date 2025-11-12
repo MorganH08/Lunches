@@ -22,6 +22,6 @@ Balance DECIMAL (15,2) NOT NULL
 Role TINYINT(1)
 );
 ");
-$stmt->execute(); */
+$stmt->execute();
 echo("tbluser created<br>");
 ?>
