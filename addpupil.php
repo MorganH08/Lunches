@@ -27,7 +27,7 @@ $stmt->bindParam(":Forename",$_POST["forename"]);
 $stmt->bindParam(":Password",$_POST["password"]);
 $stmt->bindParam(":Year",$_POST["year"]);
 $stmt->bindParam(":Balance",$_POST["balance"]);
-$stmt->bindParam(":Role",$_POST["role"]);
+$stmt->bindParam(":Role",$role);
 $stmt->bindParam(":Username","bob");
 $stmt->execute();
 }
