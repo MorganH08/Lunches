@@ -21,7 +21,7 @@ VALUES
 :Balance,
 :Role)
 ");
-
+try{
 $stmt->bindParam(":Surname",$_POST["surname"]);
 $stmt->bindParam(":Forename",$_POST["forename"]);
 $stmt->bindParam(":Password",$_POST["password"]);
@@ -30,4 +30,8 @@ $stmt->bindParam(":Balance",$_POST["balance"]);
 $stmt->bindParam(":Role",$_POST["role"]);
 $stmt->bindParam(":Username","bob");
 $stmt->execute();
+}
+catch(PDOException $e){
+    echo("Connection failed: " . $e->getMessage());
+}
 ?>
