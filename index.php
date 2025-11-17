@@ -1,11 +1,12 @@
 <!DOCTYPE HTML>
 <html>
-    <head>
-        <title>PHP Info</title>
-    </head>
-    <body>
-        <?php
+<head>          
+    <title>PHP Info</title>
+</head>
+
+<body>
+    <?php
         phpinfo();
-        ?>
-    </body>
+    ?>
+</body>
 </html>
