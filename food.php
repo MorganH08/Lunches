@@ -21,6 +21,8 @@
         <input type="submit" value="Add Food">
     </form>
     <?php
+        session_start();
+        echo("Hello" .$_SESSION["firstname"]);
         include_once("connection.php");
         $stmt=$conn->prepare("SELECT * FROM tblfood ORDER BY Category, Name");
         $stmt->execute();
