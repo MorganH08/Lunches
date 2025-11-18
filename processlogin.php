@@ -1,3 +1,4 @@
+
 <?php
 //header("location: food.php");
 print_r($_POST);
@@ -12,19 +13,21 @@ try{
     if ($stmt->rowCount() == 0) {
         echo("Invalid username ."); 
     }else{
+        #check password ok..
         while($row=$stmt->fetch(PDO::FETCH_ASSOC))
         {
             print_r($row);
-            if ($_POST["password"]==$row["Password"])
-            echo("Password ok")
-        else
-        {
-            echo("Incorrect password");
-        }
+            if ($_POST["password"]==$row["Password"]){
+                echo("password ok");
+
+            }else{
+                echo("incorrect password");
+            }
+            //echo($row["Name"]." ".$row["Description"]." ".$row["Price"]);
+            echo("<br>");
         }
     }
 }
-
 catch(PDOException $e)
 {
     echo("error: " . $e->getMessage());
