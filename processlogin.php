@@ -6,7 +6,7 @@ include_once("connection.php");//import equivalent!
 
 try
 {
-    $stmt=$conn->prepare("SELECT * from tblusers WHERE Usenrame=:Username");
+    $stmt=$conn->prepare("SELECT * from tblusers WHERE Username=:Username");
     $stmt->bindParam(":Username", $_POST["username"]);
     $stmt->execute();
     
