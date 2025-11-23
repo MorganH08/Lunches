@@ -27,7 +27,9 @@ try{
                     echo("Only admins can log into food.php")
                 }
                 else{
-                    echo("Logged into food.php")
+                    echo("Logged into food.php");
+                    header("location: food.php"); //redirects to food.php
+                    exit(); //stops script execution/unintended behavior
                 }
             }else{
                 echo("incorrect password");
