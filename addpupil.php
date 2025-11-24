@@ -12,6 +12,8 @@ if($_POST["role"]=="admin"){
 $username=$_POST["surname"].".".$_POST["forename"][0];
 //echo($username);
 //$username="bob";
+$hashedpassword=password_hash($_POST["password"],PASSWORD_DEFAULT);
+echo($hashedpassword);
 try{
     $stmt=$conn->prepare("INSERT INTO tblusers 
     (UserID,Username,Surname,Forename,Password,Year,Balance,Role)
@@ -20,7 +22,7 @@ try{
     ");
     $stmt->bindParam(":Surname", $_POST["surname"]);
     $stmt->bindParam(":Forename", $_POST["forename"]);
-    $stmt->bindParam(":Password", $_POST["password"]);
+    $stmt->bindParam(":Password", $hashedpassword);
     $stmt->bindParam(":Year", $_POST["year"]);
     $stmt->bindParam(":Balance", $_POST["balance"]);
     $stmt->bindParam(":Role", $role);
@@ -31,7 +33,5 @@ catch(PDOException $e)
 {
     echo("error: " . $e->getMessage());
 }
-
-
 
 ?>

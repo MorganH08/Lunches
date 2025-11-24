@@ -1,6 +1,6 @@
 <?php
 session_start();
-//header("location: food.php");
+header("location: index.php");
 print_r($_POST);
 array_map("htmlspecialchars", $_POST);//sanitises inputs so no html can be injected
 include_once("connection.php");//import equivalent!
@@ -17,19 +17,22 @@ try{
         while($row=$stmt->fetch(PDO::FETCH_ASSOC))
         {
             print_r($row);
-            if ($_POST["password"]==$row["Password"]){
+            $hashed=$row["Password"];
+            $attempt=$_POST["password"];
+
+            if (password_verify($attempt,$hashed)){
                 echo("password ok");
-                $_SESSION["firstname"]=$row["Forename"];
+                $_SESSION["firstname"]=$row["Forename"]; // $_SESSION variables retain your data until the browser is closed/session ended
                 $_SESSION["loggedinuser"]=$row["Username"];
+                $_SESSION["admin"]=$row["Role"];
                 $_SESSION["role"]=$row["Role"];
                 
                 if ($row["Role"]=="pupil"){
-                    echo("Only admins can log into food.php")
+                    echo("Only admins can log into food.php");
                 }
                 else{
                     echo("Logged into food.php");
                     header("location: food.php"); //redirects to food.php
-                    exit(); //stops script execution/unintended behavior
                 }
             }else{
                 echo("incorrect password");

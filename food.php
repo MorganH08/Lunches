@@ -1,3 +1,16 @@
+<?php
+    session_start();
+    if ($_SESSION["admin"]==1)
+    {
+        echo("Hello".$_SESSION["firstname"]);
+    }
+    else
+    {
+        header("location: index.php")
+        echo("Not admin");
+    }
+?>
+
 <!DOCTYPE HTML>
 <html>
 <head>          
@@ -21,7 +34,7 @@
         <input type="submit" value="Add Food">
     </form>
     <?php
-        session_start();
+        session_start(); //starts a session where it stores $_SESSION variables until the browser closes
         echo("Hello" .$_SESSION["firstname"]);
         include_once("connection.php");
         $stmt=$conn->prepare("SELECT * FROM tblfood ORDER BY Category, Name");
