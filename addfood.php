@@ -16,11 +16,7 @@ try{
     
     $stmt->execute();
 }
-catch(PDOException $e)
-{
+catch(PDOException $e){
     echo("error: " . $e->getMessage());
 }
-
-
-
 ?>
