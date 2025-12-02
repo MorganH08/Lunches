@@ -44,7 +44,7 @@ $stmt->execute();
 //tblfood
 $stmt=$conn->prepare("DROP TABLE IF EXISTS tblfood;
 CREATE TABLE tblfood
-(FoodID INT(4) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+(foodid INT(4) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 Name VARCHAR(20) NOT NULL,
 Description  VARCHAR(200) NOT NULL,
 Category  VARCHAR(20) NOT NULL,
@@ -78,8 +78,8 @@ $stmt=$conn->prepare("DROP TABLE IF EXISTS tblbasket;
 CREATE TABLE tblbasket
 (OrderID INT(4) NOT NULL,
 Quantity INT(2) DEFAULT 1,
-FoodID  INT(4) NOT NULL,
-PRIMARY KEY (OrderID, FoodID)
+foodid  INT(4) NOT NULL,
+PRIMARY KEY (OrderID, foodid)
 );
 ");
 $stmt->execute();

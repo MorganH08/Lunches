@@ -5,7 +5,7 @@ include_once("connection.php");//import equivalent!
 
 try{
     $stmt=$conn->prepare("INSERT INTO tblfood 
-    (FoodID,Name,Description,Category,Price)
+    (foodid,Name,Description,Category,Price)
     VALUES
     (NULL,:Name,:Description,:Category,:Price)
     ");
@@ -20,3 +20,4 @@ catch(PDOException $e){
     echo("error: " . $e->getMessage());
 }
 ?>
+<a href="index.php">back to main page</a><br>

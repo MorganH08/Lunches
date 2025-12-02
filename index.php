@@ -16,9 +16,11 @@
 <body>
     <h1>Main page</h1>
     <a href="users.php">Add user</a><br>
-    <a href="addfood.php">Add food</a><br>
-    <a href="food.php">Choose food</a><br>
+    <a href="food.php">Add food</a><br>
+    <a href="choosefood.php">choose food</a><br>
     <a href="login.php">Login</a><br>
     <a href="logout.php">Logout</a><br>
+    <a href="emptybasket.php">Empty Basket</a><br>
+    <a href="viewbasket.php">view basket and checkout</a><br>
 </body>
 </html>

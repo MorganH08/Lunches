@@ -1,5 +1,5 @@
 <?php
-session_start();
+session_start();//to allow session variables
 header("location: index.php");
 print_r($_POST);
 array_map("htmlspecialchars", $_POST);//sanitises inputs so no html can be injected
@@ -22,18 +22,10 @@ try{
 
             if (password_verify($attempt,$hashed)){
                 echo("password ok");
-                $_SESSION["firstname"]=$row["Forename"]; // $_SESSION variables retain your data until the browser is closed/session ended
-                $_SESSION["loggedinuser"]=$row["Username"];
+                $_SESSION["firstname"]=$row["Forename"];//session variable - lasts until browser closed
+                $_SESSION["loggedinuser"]=$row["UserID"];
                 $_SESSION["admin"]=$row["Role"];
-                $_SESSION["role"]=$row["Role"];
-                
-                if ($row["Role"]=="pupil"){
-                    echo("Only admins can log into food.php");
-                }
-                else{
-                    echo("Logged into food.php");
-                    header("location: food.php"); //redirects to food.php
-                }
+
             }else{
                 echo("incorrect password");
             }
